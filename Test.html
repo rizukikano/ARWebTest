@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AR.js Marker-based Video</title>
+    <!-- Include A-Frame and AR.js libraries -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden;">
+    <!-- A-Frame Scene with AR.js -->
+    <a-scene embedded arjs="sourceType: webcam;">
+
+      <!-- Marker (use "hiro" marker for detection) -->
+      <a-marker type="pattern" url="pattern.patt"">
+        <!-- Video Geometry -->
+        <a-video src="#video" width="4" height="2.25" position="0 1 0"></a-video>
+      </a-marker>
+
+      <!-- Camera (required by A-Frame) -->
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <!-- Video Element -->
+    <video id="video" src="video.mp4" autoplay loop="true" style="display: none;"></video>
+
+  </body>
+</html>
